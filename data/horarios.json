@@ -1,0 +1,44 @@
+[
+    {
+        "day": "Lunes",
+        "time": "08:00",
+        "className": "Yoga",
+        "capacity": 15,
+        "attendees": []
+    },
+    {
+        "day": "Lunes",
+        "time": "10:00",
+        "className": "Pilates",
+        "capacity": 10,
+        "attendees": []
+    },
+    {
+        "day": "Martes",
+        "time": "09:00",
+        "className": "Spinning",
+        "capacity": 20,
+        "attendees": []
+    },
+    {
+        "day": "Miércoles",
+        "time": "08:00",
+        "className": "Funcional",
+        "capacity": 15,
+        "attendees": []
+    },
+    {
+        "day": "Jueves",
+        "time": "18:00",
+        "className": "Boxeo",
+        "capacity": 12,
+        "attendees": []
+    },
+    {
+        "day": "Viernes",
+        "time": "17:00",
+        "className": "Zumba",
+        "capacity": 25,
+        "attendees": []
+    }
+]

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Perfil</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-header">
+                <img id="profileImage" src="img/default-profile.png">
+                <h1 id="userName"></h1>
+                <button id="logoutBtn" class="btn">Cerrar Sesión</button>
+            </div>
+            <input type="file" id="profileUpload" accept="image/*" style="display:none">
+            <button id="changeProfileBtn" class="btn">Cambiar Foto</button>
+        </header>
+        <main>
+            <section class="user-section">
+                <h2>Horarios de Hoy</h2>
+                <div id="todaySchedules"></div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="js/userPanel.js"></script>
+</body>
+</html>
