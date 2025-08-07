@@ -1,0 +1,384 @@
+:root {
+  /* Colores */
+  --primary-color: #3498db;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --dark-color: #2c3e50;
+  --light-color: #f8f9fa;
+  --border-color: #eee;
+  --text-color: #333;
+  --text-light: #666;
+  
+  /* Espaciados */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Bordes */
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  /* Transiciones */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
+}
+
+/* Estructura principal */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-tools {
+  display: none;
+  margin-top: var(--space-xl);
+  transition: all var(--transition-normal);
+}
+
+/* Formularios */
+.admin-form, 
+.schedule-form {
+  background: var(--light-color);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.admin-form:hover,
+.schedule-form:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.form-group input, 
+.form-group select {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+
+/* Añade esto a tu CSS existente */
+
+/* Estilos específicos para selects */
+.form-group select {
+  width: 100%;
+  max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+  padding: var(--space-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  appearance: none; /* Elimina el estilo por defecto del navegador */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right var(--space-sm) center;
+  background-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+/* Limita el tamaño de las opciones del dropdown */
+.form-group select option {
+  padding: var(--space-sm);
+  font-size: 0.9rem;
+  max-height: 200px; /* Limita la altura máxima del dropdown */
+  overflow-y: auto; /* Añade scroll si hay muchas opciones */
+}
+
+/* Estilo para cuando el select está enfocado */
+.form-group select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Para navegadores WebKit (Chrome, Safari) */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .form-group select {
+    padding-right: 2.5rem; /* Espacio para el ícono */
+  }
+  
+  .form-group select option {
+    max-height: 150px; /* Altura máxima más pequeña para WebKit */
+  }
+}
+
+/* Solución específica para Firefox */
+@-moz-document url-prefix() {
+  .form-group select {
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo */
+  }
+  
+  .form-group select option {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Horarios */
+.day-section {
+  margin-bottom: var(--space-xl);
+  background: var(--light-color);
+  padding: var(--space-md);
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.day-section:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.day-schedules {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.schedule-item {
+  background: white;
+  padding: var(--space-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.schedule-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.schedule-header {
+  margin-bottom: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Progreso de inscripciones */
+.progress-container {
+  height: 20px;
+  background: #e9ecef;
+  border-radius: var(--border-radius-sm);
+  margin: var(--space-sm) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--success-color);
+  border-radius: var(--border-radius-sm);
+  transition: width var(--transition-normal);
+  position: relative;
+}
+
+.progress-container span {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 0.7rem;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Lista de alumnos */
+.attendees {
+  margin-top: var(--space-md);
+}
+
+.attendees ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.attendees li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-fast);
+}
+
+.attendees li:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.no-attendees {
+  color: var(--text-light);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-md);
+}
+
+/* Botones */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-delete {
+  background-color: var(--danger-color);
+  color: white;
+  margin-top: var(--space-md);
+  width: 100%;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: var(--space-md);
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.btn-remove:hover {
+  color: #bd2130;
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Alertas */
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--border-radius-sm);
+  color: white;
+  z-index: 1000;
+  animation: alertSlideIn 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+.alert-success { 
+  background-color: var(--success-color); 
+}
+
+.alert-error { 
+  background-color: var(--danger-color); 
+}
+
+.alert-warning { 
+  background-color: var(--warning-color); 
+  color: #212529; 
+}
+
+@keyframes alertSlideIn {
+  from { 
+    top: -50px; 
+    opacity: 0; 
+  }
+  to { 
+    top: 20px; 
+    opacity: 1; 
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  
+  .day-schedules {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-form,
+  .schedule-form {
+    padding: var(--space-md);
+  }
+}
+
+/* Utilidades */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: var(--space-sm); }
+.mt-2 { margin-top: var(--space-md); }
+.mt-3 { margin-top: var(--space-lg); }
+.mt-4 { margin-top: var(--space-xl); }
+
+.mb-1 { margin-bottom: var(--space-sm); }
+.mb-2 { margin-bottom: var(--space-md); }
+.mb-3 { margin-bottom: var(--space-lg); }
+.mb-4 { margin-bottom: var(--space-xl); }

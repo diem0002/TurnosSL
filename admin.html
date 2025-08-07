@@ -1,25 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Panel Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Gimnasio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Panel de Administración</h1>
-            <button id="logoutBtn" class="btn">Cerrar Sesión</button>
+        <header class="admin-header">
+            <div>
+                <h1>Panel de Administración</h1>
+                <p>Bienvenido, <span id="adminName">Administrador</span></p>
+            </div>
+            <button id="logoutBtn" class="btn btn-danger">Cerrar Sesión</button>
         </header>
+        
         <main>
             <section class="admin-section">
                 <h2>Gestión de Horarios</h2>
-                <form id="addScheduleForm">
-                    <!-- Formulario para agregar horarios -->
-                </form>
-                <div id="schedulesList"></div>
+                
+                <div class="schedule-form">
+                    <h3>Agregar Nuevo Horario</h3>
+                    <form id="addScheduleForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="scheduleDay">Día de la semana:</label>
+                                <select id="scheduleDay" required>
+                                    <option value="">Seleccionar día</option>
+                                    <option value="Lunes">Lunes</option>
+                                    <option value="Martes">Martes</option>
+                                    <option value="Miércoles">Miércoles</option>
+                                    <option value="Jueves">Jueves</option>
+                                    <option value="Viernes">Viernes</option>
+                                    <option value="Sábado">Sábado</option>
+                                    <option value="Domingo">Domingo</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="scheduleTime">Hora:</label>
+                                <input type="time" id="scheduleTime" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="scheduleClass">Tipo de Clase:</label>
+                                <input type="text" id="scheduleClass" placeholder="Ej: CrossFit, Spinning" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="scheduleCapacity">Capacidad:</label>
+                                <input type="number" id="scheduleCapacity" min="1" value="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="scheduleTrainer">Entrenador:</label>
+                                <input type="text" id="scheduleTrainer" placeholder="Nombre del entrenador">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Agregar Horario</button>
+                    </form>
+                </div>
+                
+                <h3>Horarios Existentes</h3>
+                <div id="schedulesList" class="schedules-container">
+                    <p class="loading-message">Cargando horarios...</p>
+                </div>
             </section>
         </main>
     </div>
+
     <script type="module" src="js/adminPanel.js"></script>
 </body>
 </html>

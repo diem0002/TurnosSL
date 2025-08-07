@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi Perfil</title>
+    <title>Mi Panel - Gimnasio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="profile-header">
-                <img id="profileImage" src="img/default-profile.png">
-                <h1 id="userName"></h1>
-                <button id="logoutBtn" class="btn">Cerrar Sesión</button>
+        <header class="user-header">
+            <div>
+                <img id="profileImage" src="img/default-profile.png" alt="Foto de perfil">
+                <h1>Bienvenido, <span id="userName">Usuario</span></h1>
             </div>
-            <input type="file" id="profileUpload" accept="image/*" style="display:none">
-            <button id="changeProfileBtn" class="btn">Cambiar Foto</button>
+            <button id="logoutBtn" class="btn btn-danger">Cerrar Sesión</button>
         </header>
+        
         <main>
-            <section class="user-section">
-                <h2>Horarios de Hoy</h2>
+            <section class="schedules-section">
                 <div id="todaySchedules"></div>
             </section>
         </main>
     </div>
+    
     <script type="module" src="js/userPanel.js"></script>
 </body>
 </html>
